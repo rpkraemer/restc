@@ -15,7 +15,6 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-
 import br.com.rpk.restc.MediaType;
 import br.com.rpk.restc.Resource;
 import br.com.rpk.restc.Response;
@@ -24,15 +23,21 @@ public class Request implements br.com.rpk.restc.Request {
 
 	private String uri;
 	private StringEntity data;
-	private DefaultHttpClient client = new DefaultHttpClient();
+	private DefaultHttpClient client;
 	private MediaType mediaType = MediaType.FORM_ENCODED; // default
 	
 	public Request(String uri) {
 		this.uri = uri;
+		newDefaultHttpClient();
 	}
 	
 	public Request(URI uri) {
 		this.uri = uri.toString();
+		newDefaultHttpClient();
+	}
+
+	private void newDefaultHttpClient() {
+		this.client = new DefaultHttpClient();
 	}
 	
 	private boolean hasDataToSend() {
