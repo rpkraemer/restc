@@ -90,4 +90,10 @@ public interface Resource {
 	 * @return json representation of current resource
 	 */
 	String toJSON();
+	
+	/**
+	 * Only return content when server response is XML.
+	 * @return xml representation of current resource
+	 */
+	String toXML();
 }

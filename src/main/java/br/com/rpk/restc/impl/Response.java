@@ -84,9 +84,15 @@ public class Response implements br.com.rpk.restc.Response {
 			} else if (isRootArray()) {
 				return new JSONResource(asJSONArray());
 			}
+		} else if (isXmlResonse()) {
+			return new XMLResource(rawContent);
 		}
 		return null;
-		//TODO XML Resource
+	}
+
+	private boolean isXmlResonse() {
+		return httpResponse.getHeaders("Content-Type")[0].getValue().contains("application/xml") ||
+		   	   httpResponse.getHeaders("Content-Type")[0].getValue().contains("text/xml");
 	}
 
 	private boolean isRootObject() {

@@ -131,4 +131,9 @@ public class JSONResource implements Resource {
 		}
 		return json;
 	}
+
+	@Override
+	public String toXML() {
+		return "";
+	}
 }

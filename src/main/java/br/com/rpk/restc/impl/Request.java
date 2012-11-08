@@ -174,6 +174,9 @@ public class Request implements br.com.rpk.restc.Request {
 		if (resource instanceof JSONResource) {
 			mediaType = MediaType.JSON;
 			jsonOrXml(resource.toJSON());
+		} else if (resource instanceof XMLResource) {
+			mediaType = MediaType.XML;
+			jsonOrXml(resource.toXML());
 		}
 		return this;
 	}
