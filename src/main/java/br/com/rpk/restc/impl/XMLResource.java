@@ -136,12 +136,12 @@ public class XMLResource implements Resource {
 
 	@Override
     public Object get(int index) {
-        Node node = getNodeAt(index);
-//        if (hasChildren(node)) {
-            return new XMLResource(node, xmlDoc);
-//        } else {
-//            return node.getTextContent();
-//        }
+		try {
+			Node node = getNodeAt(index);
+			return new XMLResource(node, xmlDoc);
+		} catch (RuntimeException e) {
+			return null; //when element not encountered
+		}
     }
 
     private Node getNodeAt(int index) {
