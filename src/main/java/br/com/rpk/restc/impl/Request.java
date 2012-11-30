@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
@@ -23,7 +24,7 @@ public class Request implements br.com.rpk.restc.Request {
 
 	private String uri;
 	private StringEntity data;
-	private DefaultHttpClient client;
+	private HttpClient client;
 	private MediaType mediaType = MediaType.FORM_ENCODED; // default
 	
 	public Request(String uri) {
@@ -35,7 +36,7 @@ public class Request implements br.com.rpk.restc.Request {
 		this.uri = uri.toString();
 		newDefaultHttpClient();
 	}
-
+	
 	private void newDefaultHttpClient() {
 		this.client = new DefaultHttpClient();
 	}

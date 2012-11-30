@@ -2,8 +2,6 @@ package br.com.rpk.restc;
 
 import java.net.URI;
 
-import br.com.rpk.restc.impl.Request;
-
 /**
  * Restc </br></br>
  * 
@@ -18,7 +16,7 @@ public class Restc {
 	 * @param uri the rest resource/service
 	 */
 	static public Request at(String uri) {
-		return new Request(uri); 
+		return new br.com.rpk.restc.impl.Request(uri); 
 	}
 	
 	/**
@@ -26,6 +24,7 @@ public class Restc {
 	 * @param uri the rest resource/service
 	 */
 	static public Request at(URI uri) {
-		return new Request(uri); 
+		return new br.com.rpk.restc.impl.Request(uri); 
 	}
+	
 }
